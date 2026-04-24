@@ -80,10 +80,19 @@ const FORMS = {
     },
     {
       id: "f1_q8",
-      text: "Quelle est votre compréhension du secret professionnel au sein de la Police Nationale ?",
+      text: "Citez moi les grades du corps d'encadrement dans l'ordre",
       type: "text"
-    }
+    },
+
+    {
+      id: "f1_q9",
+      text: "Donnez moi 4 codes radio en rapport avec les poursuites. (ex 10-04, cela veut dire affirmatif)",
+      type: "text"
+    },
+
   ],
+
+  
 
   // ===== FORMULAIRE 2 — Procédures & Législation =====
   2: [
