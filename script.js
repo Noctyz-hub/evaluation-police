@@ -529,7 +529,9 @@ async function submitForm() {
   };
 
   try {
-    const response = await fetch(DISCORD_WEBHOOK_URL, {
+    // Proxy CORS pour Discord
+    const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(DISCORD_WEBHOOK_URL);
+    const response = await fetch(proxyUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ embeds: [embed] })
