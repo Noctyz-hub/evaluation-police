@@ -529,12 +529,10 @@ async function submitForm() {
   };
 
   try {
-    // Proxy CORS pour Discord
-    const proxyUrl = "https://corsproxy.io/?" + encodeURIComponent(DISCORD_WEBHOOK_URL);
-    const response = await fetch(proxyUrl, {
+    const response = await fetch(DISCORD_WEBHOOK_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ embeds: [embed] })
+      body: JSON.stringify({ username: "Police Nationale — Évaluations", embeds: [embed] })
     });
 
     if (response.ok || response.status === 204) {
@@ -546,12 +544,12 @@ async function submitForm() {
         `👤 ${pseudo} &nbsp;|&nbsp; 🪪 Matricule #${matricule}<br>` +
         `🕐 ${timestamp}`;
     } else {
-      throw new Error(`HTTP ${response.status}`);
+      throw new Error("HTTP " + response.status);
     }
   } catch (err) {
     showLoading(false);
     console.error("Webhook error:", err);
-    showToast("❌ Erreur d'envoi. Vérifiez le webhook Discord et réessayez.");
+    showToast("❌ Erreur d'envoi. Le fichier doit être hébergé (GitHub Pages, etc.) et non ouvert en local.");
   }
 }
 
