@@ -20,13 +20,13 @@ const FORMS = {
   1: [
     {
       id: "f1_q1",
-      text: "Quel est le rôle principal de la Police Nationale ?",
+      text: "Les droits du miranda se dit :",
       type: "radio",
       options: [
-        "Maintenir l'ordre public et assurer la sécurité des citoyens",
-        "Gérer les affaires judiciaires uniquement",
-        "S'occuper des frontières nationales seulement",
-        "Appliquer uniquement les lois fiscales"
+        "Avant d'interroger un suspect placé en état d'arrestation",
+        "Après avoir interrogé un suspect",
+        "Lors d'un simple contrôle d'identité",
+        "Uniquement après une condamnation par un juge"
       ]
     },
     {
@@ -42,7 +42,7 @@ const FORMS = {
     },
     {
       id: "f1_q3",
-      text: "Citez les grades de la Police Nationale du plus bas au plus haut (répondez librement).",
+      text: "Quel est la mission de la Police Nationale ?",
       type: "text"
     },
     {
