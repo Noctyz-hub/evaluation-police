@@ -31,13 +31,13 @@ const FORMS = {
     },
     {
       id: "f1_q2",
-      text: "Qu'est-ce que l'interpellation d'un suspect implique ?",
+      text: "En cas de prise d'otage quel vie prioritère doit on sauver ?",
       type: "radio",
       options: [
-        "Uniquement lui poser des questions",
-        "L'arrêter, l'informer de ses droits et le placer en garde à vue si nécessaire",
-        "Le menotter sans autre formalité",
-        "L'emmener directement en prison"
+        "La sienne",
+        "Celle des preneurs d'otages",
+        "Celle de l'otage",
+        "Celle de ses collègues"
       ]
     },
     {
