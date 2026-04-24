@@ -7,7 +7,7 @@
 //  ⚙️ CONFIGURATION — À MODIFIER
 // ──────────────────────────────────────────
 
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1497158799436415020/5fhmZ82DobCYu5UoUqkJWDh8p0ZoKPG9x6_HTGN5gr9xE1uHS-pjAgRzsUvZ0zH-M8YK"; // <-- Collez votre webhook Discord ici
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1497158799436415020/5fhmZ82DobCYu5UoUqkJWDh8p0ZoKPG9x6_HTGN5gr9xE1uHS-pjAgRzsUvZ0zH-M8YK";
 
 // ──────────────────────────────────────────
 //  📋 QUESTIONS — Ajoutez / modifiez ici
