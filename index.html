@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Évaluation — Police Nationale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SCANLINES overlay -->
+  <div class="scanlines"></div>
+  <div class="noise"></div>
+
+  <!-- PARTICLES -->
+  <canvas id="particles"></canvas>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="badge-icon">🛡️</div>
+      <div class="header-text">
+        <span class="header-title">POLICE NATIONALE</span>
+        <span class="header-sub">Système d'Évaluation Interne — Classifié</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="clock" id="clock"></div>
+      <div class="status-dot"></div>
+      <span class="status-label">SYSTÈME EN LIGNE</span>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-wrapper">
+
+    <!-- STEP 0: IDENTITY -->
+    <section class="step active" id="step-identity">
+      <div class="step-header">
+        <div class="step-number">01</div>
+        <div>
+          <h2 class="step-title">Identification de l'Agent</h2>
+          <p class="step-desc">Renseignez vos informations avant de commencer l'évaluation</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-row">
+          <label class="field-label">Pseudo Discord</label>
+          <div class="input-wrap">
+            <span class="input-icon">@</span>
+            <input type="text" id="discord-pseudo" class="field-input" placeholder="ex: john_doe#1234" autocomplete="off"/>
+          </div>
+        </div>
+        <div class="card-row">
+          <label class="field-label">Matricule</label>
+          <div class="input-wrap">
+            <span class="input-icon">#</span>
+            <input type="number" id="matricule" class="field-input" placeholder="ex: 00421" autocomplete="off"/>
+          </div>
+        </div>
+        <p class="hint">⚠️ Ces informations seront transmises avec vos réponses.</p>
+      </div>
+
+      <!-- FORMULAIRE SELECTOR -->
+      <div class="form-selector">
+        <p class="selector-label">Choisissez votre formulaire d'évaluation :</p>
+        <div class="form-cards">
+          <div class="form-card" data-form="1" onclick="selectForm(1)">
+            <div class="form-card-icon">📋</div>
+            <div class="form-card-title">Formulaire 1</div>
+            <div class="form-card-desc">Connaissances Générales</div>
+            <div class="form-card-badge">NIVEAU 1</div>
+          </div>
+          <div class="form-card" data-form="2" onclick="selectForm(2)">
+            <div class="form-card-icon">⚖️</div>
+            <div class="form-card-title">Formulaire 2</div>
+            <div class="form-card-desc">Procédures & Législation</div>
+            <div class="form-card-badge">NIVEAU 2</div>
+          </div>
+          <div class="form-card" data-form="3" onclick="selectForm(3)">
+            <div class="form-card-icon">🚔</div>
+            <div class="form-card-title">Formulaire 3</div>
+            <div class="form-card-desc">Protocoles Opérationnels</div>
+            <div class="form-card-badge">NIVEAU 3</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="startEvaluation()" id="start-btn" disabled>
+        <span class="btn-text">LANCER L'ÉVALUATION</span>
+        <span class="btn-arrow">→</span>
+      </button>
+    </section>
+
+    <!-- STEP 1: FORM 1 -->
+    <section class="step" id="step-form1">
+      <div class="step-header">
+        <div class="step-number">02</div>
+        <div>
+          <h2 class="step-title">Formulaire 1 — Connaissances Générales</h2>
+          <p class="step-desc">Répondez à chaque question avec précision</p>
+        </div>
+      </div>
+      <div id="questions-form1" class="questions-wrap"></div>
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="goBack()">← Retour</button>
+        <button class="btn-primary" onclick="submitForm()">
+          <span class="btn-text">SOUMETTRE L'ÉVALUATION</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2: FORM 2 -->
+    <section class="step" id="step-form2">
+      <div class="step-header">
+        <div class="step-number">02</div>
+        <div>
+          <h2 class="step-title">Formulaire 2 — Procédures & Législation</h2>
+          <p class="step-desc">Répondez à chaque question avec précision</p>
+        </div>
+      </div>
+      <div id="questions-form2" class="questions-wrap"></div>
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="goBack()">← Retour</button>
+        <button class="btn-primary" onclick="submitForm()">
+          <span class="btn-text">SOUMETTRE L'ÉVALUATION</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 3: FORM 3 -->
+    <section class="step" id="step-form3">
+      <div class="step-header">
+        <div class="step-number">02</div>
+        <div>
+          <h2 class="step-title">Formulaire 3 — Protocoles Opérationnels</h2>
+          <p class="step-desc">Répondez à chaque question avec précision</p>
+        </div>
+      </div>
+      <div id="questions-form3" class="questions-wrap"></div>
+      <div class="nav-buttons">
+        <button class="btn-secondary" onclick="goBack()">← Retour</button>
+        <button class="btn-primary" onclick="submitForm()">
+          <span class="btn-text">SOUMETTRE L'ÉVALUATION</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SUCCESS -->
+    <section class="step" id="step-success">
+      <div class="success-screen">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">ÉVALUATION TRANSMISE</h2>
+        <p class="success-desc">Vos réponses ont été envoyées avec succès.<br>Une réponse vous sera donnée sous <strong>72 heures</strong>.</p>
+        <div class="success-meta" id="success-meta"></div>
+        <button class="btn-primary" onclick="resetAll()" style="margin-top:2rem">
+          <span class="btn-text">NOUVELLE ÉVALUATION</span>
+          <span class="btn-arrow">↺</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <!-- LOADING OVERLAY -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-ring"></div>
+      <p class="loading-text" id="loading-text">TRANSMISSION EN COURS...</p>
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
