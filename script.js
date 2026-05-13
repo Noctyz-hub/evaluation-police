@@ -23,7 +23,7 @@ const FORMS = {
       text: "Dites-moi dans les moindres détails comment faire un barrage routier en toute sécurité.",
       type: "text"
       
-      ]
+      
     },
     {
       id: "f1_q2",
