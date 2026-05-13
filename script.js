@@ -20,13 +20,9 @@ const FORMS = {
   1: [
     {
       id: "f1_q1",
-      text: "Les droits du miranda se dit :",
-      type: "radio",
-      options: [
-        "Avant d'interroger un suspect placé en état d'arrestation",
-        "Après avoir interrogé un suspect",
-        "Lors d'un simple contrôle d'identité",
-        "Uniquement après une condamnation par un juge"
+      text: "Dites-moi dans les moindres détails comment faire un barrage routier en toute sécurité.",
+      type: "text",
+      
       ]
     },
     {
@@ -80,13 +76,13 @@ const FORMS = {
     },
     {
       id: "f1_q8",
-      text: "Citez moi les grades du corps d'encadrement dans l'ordre",
+      text: "Citez moi les grades du corps de Commandement dans l'ordre",
       type: "text"
     },
 
     {
       id: "f1_q9",
-      text: "Donnez moi 4 codes radio en rapport avec les poursuites. (ex 10-04, cela veut dire affirmatif)",
+      text: "Donnez moi 15 codes radio. (ex 10-04, cela veut dire affirmatif 'Bonus')",
       type: "text"
     },
 
